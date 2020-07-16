@@ -19,7 +19,7 @@ slidebars = function () {
 	 */
 
 	// Cache all canvas elements
-	var canvas = $( '[canvas]' ),
+	var canvas = $( '[data-canvas]' ),
 
 	// Object of Slidebars
 	offCanvas = {},
@@ -107,7 +107,7 @@ slidebars = function () {
 
 		// Loop through and register Slidebars
 		if ( ! registered ) {
-			$( '[off-canvas]' ).each( function () {
+			$( '[data-off-canvas]' ).each( function () {
 				// Get Slidebar parameters
 				var parameters = $( this ).attr( 'off-canvas' ).split( ' ', 3 );
 
