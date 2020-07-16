@@ -109,7 +109,7 @@ slidebars = function () {
 		if ( ! registered ) {
 			$( '[data-off-canvas]' ).each( function () {
 				// Get Slidebar parameters
-				var parameters = $( this ).attr( 'off-canvas' ).split( ' ', 3 );
+				var parameters = $( this ).data( 'off-canvas' ).split( ' ', 3 );
 
 				// Make sure a valid id, side and style are specified
 				if ( ! parameters || ! parameters[ 0 ] || sides.indexOf( parameters[ 1 ] ) === -1 || styles.indexOf( parameters[ 2 ] ) === -1 ) {
