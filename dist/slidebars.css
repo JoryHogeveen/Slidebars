@@ -1,6 +1,6 @@
 /*!
  * Slidebars - A jQuery Framework for Off-Canvas Menus and Sidebars
- * Version: 2.0.2
+ * Version: 2.1
  * Url: http://www.adchsm.com/slidebars/
  * Author: Adam Charles Smith
  * Author url: http://www.adchsm.com/
@@ -12,12 +12,12 @@
  * Box Model, Html & Body
  */
 
-html, body, [canvas=container], [off-canvas] {
+html, body, [data-canvas=container], [data-off-canvas] {
 	margin: 0;
 	padding: 0;
 	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html, body {
@@ -30,11 +30,11 @@ html, body {
  * Canvas
  */
 
-[canvas] {
+[data-canvas] {
 	z-index: 1;
 }
 
-[canvas=container] {
+[data-canvas=container] {
 	width: 100%;
 	height: 100%;
 	overflow-y: auto;
@@ -43,7 +43,7 @@ html, body {
 	-webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS devices, may be removed by setting to 'auto' in your own CSS. */
 }
 
-[canvas=container]:before, [canvas=container]:after {
+[data-canvas=container]:before, [data-canvas=container]:after {
 	clear: both;
 	content: '';
 	display: table;
@@ -53,7 +53,7 @@ html, body {
  * Off-Canavs
  */
 
-[off-canvas] {
+[data-off-canvas] {
 	display: none;
 	position: fixed;
 	overflow: hidden;
@@ -63,45 +63,45 @@ html, body {
 	-webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS devices, may be removed by setting to 'auto' in your own CSS. */
 }
 
-[off-canvas*=top] {
+[data-off-canvas*=" top"] {
 	width: 100%;
 	height: 255px;
 	top: 0;
 }
 
-[off-canvas*=right] {
+[data-off-canvas*=" right"] {
 	width: 255px;
 	height: 100%;
 	top: 0;
 	right: 0;
 }
 
-[off-canvas*=bottom] {
+[data-off-canvas*=" bottom"] {
 	width: 100%;
 	height: 255px;
 	bottom: 0;
 }
 
-[off-canvas*=left] {
+[data-off-canvas*=" left"] {
 	width: 255px;
 	height: 100%;
 	top: 0;
 	left: 0;
 }
 
-[off-canvas*=reveal] {
+[data-off-canvas*=" reveal"] {
 	z-index: 0;
 }
 
-[off-canvas*=push] {
+[data-off-canvas*=" push"] {
 	z-index: 1;
 }
 
-[off-canvas*=overlay] {
+[data-off-canvas*=" overlay"] {
 	z-index: 9999;
 }
 
-[off-canvas*=shift] {
+[data-off-canvas*=" shift"] {
 	z-index: 0;
 }
 
@@ -109,33 +109,33 @@ html, body {
  * Animation
  */
 
-[canvas], [off-canvas] {
+[data-canvas], [data-off-canvas] {
 	-webkit-transform: translate( 0px, 0px );
-	    -ms-transform: translate( 0px, 0px );
-	        transform: translate( 0px, 0px );
+	-ms-transform: translate( 0px, 0px );
+	transform: translate( 0px, 0px );
 	-webkit-transition: -webkit-transform 300ms;
-	        transition:         transform 300ms;
+	transition:         transform 300ms;
 	-webkit-backface-visibility: hidden; /* Prevents flickering, may be removed if experiencing problems with fixed background images in Chrome. */
 }
 
-[off-canvas*=shift][off-canvas*=top] {
+[data-off-canvas*=" shift"][data-off-canvas*=" top"] {
 	-webkit-transform: translate( 0px, 50% );
-	        transform: translate( 0px, 50% );
+	transform: translate( 0px, 50% );
 }
 
-[off-canvas*=shift][off-canvas*=right] {
+[data-off-canvas*=" shift"][data-off-canvas*=" right"] {
 	-webkit-transform: translate( -50%, 0px );
-	        transform: translate( -50%, 0px );
+	transform: translate( -50%, 0px );
 }
 
-[off-canvas*=shift][off-canvas*=bottom] {
+[data-off-canvas*=" shift"][data-off-canvas*=" bottom"] {
 	-webkit-transform: translate( 0px, -50% );
-	        transform: translate( 0px, -50% );
+	transform: translate( 0px, -50% );
 }
 
-[off-canvas*=shift][off-canvas*=left] {
+[data-off-canvas*=" shift"][data-off-canvas*=" left"] {
 	-webkit-transform: translate( 50%, 0px );
-	        transform: translate( 50%, 0px );
+	transform: translate( 50%, 0px );
 }
 
 /**
@@ -143,13 +143,13 @@ html, body {
  */
 
 @media print {
-	[canvas] {
+	[data-canvas] {
 		-webkit-transform: translate( 0px, 0px ) !important;
-		    -ms-transform: translate( 0px, 0px ) !important;
-		        transform: translate( 0px, 0px ) !important;
+		-ms-transform: translate( 0px, 0px ) !important;
+		transform: translate( 0px, 0px ) !important;
 	}
 
-	[off-canvas] {
+	[data-off-canvas] {
 		display: none !important;
 	}
 }
