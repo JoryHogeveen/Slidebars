@@ -1,6 +1,7 @@
 {
 	"name": "slidebars",
 	"version": "2.1",
+	"license": "MIT",
 	"dependencies": {
 		"jquery": ">=1.8"
 	},
